@@ -1,5 +1,8 @@
 <h1>Category Index </h1>
 
 <% @categories.each do |category| %>
-  <%= category.search_term %><br>
+  <div class="category_<%= category.id %>">
+    <%= category.search_term %>
+    <%= link_to "Delete", category_path(category), method: :delete %>
+  </div>
 <% end %>
