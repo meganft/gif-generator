@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       redirect_to user_path(@user)
       flash[:success] = "You created a new account!"
     elsif User.find_by(email: @user.email)
-      flash.now[:error] = "User already exitsts. Please login."
+      flash[:error] = "User already exists. Please login."
       redirect_to login_path
     else
       flash.now[:error] = "Please fill in all fields."
