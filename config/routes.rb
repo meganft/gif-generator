@@ -7,4 +7,6 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:index, :new, :create, :destroy]
 
+  resources :gifs, only: [:new, :create, :show, :index]
+
 end
