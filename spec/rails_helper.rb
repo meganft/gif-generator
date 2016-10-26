@@ -21,8 +21,8 @@ RSpec.configure do |c|
 end
 
 Giphy::Configuration.configure do |config|
-  config.version = THE_API_VERSION
-  config.api_key = YOUR_API_KEY
+  config.version = "dc6zaTOxFJmzC"
+  config.api_key = "dc6zaTOxFJmzC"
 end
 # Add additional requires below this line. Rails is not loaded until this point!
 
