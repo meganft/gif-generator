@@ -2,12 +2,12 @@ require 'rails_helper'
 
 describe "User login" do
   scenario "a user can log in to existing account" do
-    user = User.create(username: "Megan", email: "email@mail.com", password_digest: "password")
+    user = User.create(username: "Megan", email: "email@mail.com", password: "password")
 
     visit login_path
 
     fill_in "email", with: "email@mail.com"
-    fill_in "password_digest", with: "password"
+    fill_in "password", with: "password"
 
     click_button "Login"
 
@@ -16,12 +16,12 @@ describe "User login" do
   end
 
   scenario "a user tries to login with the wrong password" do
-    user = User.create(username: "Megan", email: "email@mail.com", password_digest: "password")
+    user = User.create(username: "Megan", email: "email@mail.com", password: "password")
 
     visit login_path
 
     fill_in "email", with: "email@mail.com"
-    fill_in "password_digest", with: "12345"
+    fill_in "password", with: "12345"
 
     click_button "Login"
 

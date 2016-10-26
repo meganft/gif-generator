@@ -12,8 +12,8 @@ class UsersController < ApplicationController
       redirect_to user_path(@user)
       flash[:success] = "You created a new account!"
     elsif User.find_by(email: @user.email)
-      flash[:error] = "User already exists. Please login."
       redirect_to login_path
+      flash[:error] = "User already exists. Please login."
     else
       flash.now[:error] = "Please fill in all fields."
       render :new
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password_digest)
+    params.require(:user).permit(:username, :email, :password)
   end
 
 end

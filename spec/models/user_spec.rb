@@ -5,12 +5,12 @@ describe User do
     context "invalid attributes" do
 
       it "is invalid without a username" do
-        user = User.new(email: "mail@mail.com", password_digest: "Password")
+        user = User.new(email: "mail@mail.com", password: "Password")
         expect(user).to be_invalid
       end
 
       it "is invalid without an email" do
-        user = User.new(username: "User", password_digest: "Password")
+        user = User.new(username: "User", password: "Password")
         expect(user).to be_invalid
       end
 
@@ -21,7 +21,7 @@ describe User do
     end
     context "valid attributes" do
       it "is valid with correct attributes" do
-        user = User.new(username: "User", email: "mail@mail.com", password_digest: "Password")
+        user = User.new(username: "User", email: "mail@mail.com", password: "Password")
         expect(user).to be_valid
       end
     end

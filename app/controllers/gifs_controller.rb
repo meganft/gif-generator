@@ -6,9 +6,7 @@ class GifsController < ApplicationController
   end
 
   def index
-    # @category = Category.find_by(search_term: params[:search])
-    # search_term = @category.search_term
-    # @gif = Gif.new(image_path: Giphy.random(search_term).image_url.to_s, category_id: @category.id)
+
     @gifs = Gif.all
   end
 
@@ -23,9 +21,6 @@ class GifsController < ApplicationController
     redirect_to gif_path(@gif)
   end
 
-  # def index
-  #   @gifs = Gif.all
-  # end
 
   def destroy
     @gif = Gif.find(params[:id])
