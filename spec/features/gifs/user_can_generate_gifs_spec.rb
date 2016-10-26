@@ -1,13 +1,13 @@
 require 'rails_helper'
+require 'giphy'
 
 describe "User generates a new gif" do
   scenario "a user can generate a new gif" do
-    category = Category.create(search_term: "Puppes")
-
+    category = Category.create(search_term: "Puppies")
 
     visit new_gif_path
 
-    fill_in "search_term", with: "Puppes"
+    fill_in "search_term", with: "Puppies"
     click_button "Submit"
 
     expect(current_path).to eq("/gifs/1")

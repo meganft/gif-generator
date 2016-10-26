@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to user_path(@user)
+      redirect_to login_path
       flash[:success] = "You created a new account!"
     elsif User.find_by(email: @user.email)
       redirect_to login_path
@@ -35,10 +35,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def favorite
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password)
+    params.require(:user).permit(:username, :email, :password, :admin)
   end
 
 end

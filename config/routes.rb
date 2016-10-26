@@ -9,4 +9,6 @@ Rails.application.routes.draw do
 
   resources :gifs, only: [:new, :create, :show, :index, :destroy]
 
+  resources :favorites, only: [:new, :create, :destroy]
+
 end

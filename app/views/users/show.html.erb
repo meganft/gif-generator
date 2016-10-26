@@ -1,5 +1,11 @@
 <h1>Welcome <%= @user.username %></h1>
 
+<h2>Your Favorite Gifs</h2>
+<% @user.favorites.each do |favorite| %>
+<%= image_tag(Gif.find_by(id: favorite.gif_id).image_path) %> <%= link_to "Unfavorite", favorite_path(favorite), method: :delete %>
+<% end %><br>
+
+<%= link_to "Check out the Gif Index!", gifs_path %><br>
 
 <%= "Logged in as #{@user.username}" %><br>
 <%= link_to "Logout", logout_path %><br>

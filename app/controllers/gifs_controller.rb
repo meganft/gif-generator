@@ -1,4 +1,6 @@
 class GifsController < ApplicationController
+  before_action :require_login, only: [:show, :index]
+
   require 'giphy'
 
   def new
@@ -21,11 +23,24 @@ class GifsController < ApplicationController
     redirect_to gif_path(@gif)
   end
 
-
   def destroy
     @gif = Gif.find(params[:id])
     @gif.destroy
     redirect_to gifs_path
+  end
+
+  def require_login
+    unless session[:user_id]
+      flash[:error] = "You must be logged in to view this page."
+      redirect_to login_path
+    end
+  end
+
+  def require_admin_login
+    unless current_user.admin == true
+      flash[:error] = "You must be logged in to view this page."
+      redirect_to login_path
+    end
   end
 
 end
