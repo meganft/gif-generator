@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_login, only: [:show, :index]
+  before_action :require_login, only: [:show]
 
   def new
     @user = User.new
@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       redirect_to login_path
-      flash[:success] = "You created a new account!"
+      flash[:success] = "You created a new account! Please login now."
     elsif User.find_by(email: @user.email)
       redirect_to login_path
       flash[:error] = "User already exists. Please login."

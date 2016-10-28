@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
   has_many :gifs, through: :favorite
   has_many :favorites
 
+  enum role: %w(default admin)
 end

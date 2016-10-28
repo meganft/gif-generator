@@ -5,4 +5,8 @@
     <%= category.search_term %>
     <%= link_to "Delete", category_path(category), method: :delete %>
   </div>
-<% end %>
+<% end %><br>
+
+<%= link_to "Add a new Category", new_category_path %><br>
+<hr>
+<%= link_to "Let's generate some gifs!", new_gif_path %>
