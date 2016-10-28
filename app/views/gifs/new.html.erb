@@ -1,0 +1,6 @@
+<h2>Generate a New Gif! - non admin</h2>
+
+<%= form_tag gifs_path, :method => 'post' do  %>
+<%= text_field_tag :search_term  %>
+<%= submit_tag "Submit" %>
+<% end %>

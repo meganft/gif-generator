@@ -8,7 +8,18 @@
 </head>
 <body>
 
-<%= yield %>
+  <% flash.each do |type, msg| %>
+      <%= content_tag :div, msg, class:"flash_#{type}" %>
+  <% end %>
 
+  <% if logged_in? %>
+  <p><%= "Logged in as #{current_user.username}" %></p>
+  <p> <%= link_to "Logout", logout_path %> </p>
+  <% else  %>
+  <p> <%= link_to "Login", login_path %> </p>
+  <% end %>
+<div align="center">
+<%= yield %>
+</div>
 </body>
 </html>

@@ -1,0 +1,9 @@
+<%= image_tag(@gif.image_path) %>
+<%= link_to "Delete", gif_path(@gif), method: :delete %>
+
+
+<%= link_to "Favorite!", { :controller => "favorites",
+                          :action => "create",
+                          :user_id => current_user.id,
+                          :gif_id => @gif.id },
+                          method: "post" %>

@@ -1,6 +1,6 @@
-<h1>Create a New User</h1>
+<h1>Admin Create a New User</h1>
 
-<%= form_for @user do |f| %>
+<%= form_for [:admin, @user] do |f| %>
 
   <%= f.label :username %>
   <%= f.text_field :username %>
@@ -11,7 +11,11 @@
   <%= f.label :password %>
   <%= f.password_field :password %>
 
+  <%= f.label :admin %>
+  <%= f.check_box :admin %>
 
   <%= f.submit %>
 
 <% end %>
+
+<%= link_to "Back to my admin page", admin_user_path(current_user) %>

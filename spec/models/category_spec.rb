@@ -7,6 +7,11 @@ describe Category do
         category = Category.new()
         expect(category).to be_invalid
       end
+      it "is invalid without a unique search_term" do
+        category = Category.create(search_term: "software")
+        category2 = Category.new(search_term: "software")
+        expect(category2).to be_invalid
+      end
     end
     context "valid attributes" do
       it "is valid with correct attributes" do

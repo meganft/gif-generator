@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+ /*
+* {
+  font-family: Helvetica Neue; sans-serif;
+}
+
+a:link {
+  font-size: 1em;
+  text-decoration: none;
+}
+
+a:hover {
+  color: blue;
+  font-weight: bolder;
+}
+
+a:visited {
+  color: red;
+}*/

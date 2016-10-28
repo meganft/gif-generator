@@ -10,7 +10,7 @@ require 'database_cleaner'
 DatabaseCleaner.strategy = :truncation
 
 RSpec.configure do |c|
-  c.include Capybara::DSL 
+  c.include Capybara::DSL
 
   c.before(:all) do
     DatabaseCleaner.clean
@@ -18,6 +18,11 @@ RSpec.configure do |c|
   c.after(:each) do
     DatabaseCleaner.clean
   end
+end
+
+Giphy::Configuration.configure do |config|
+  config.version = "dc6zaTOxFJmzC"
+  config.api_key = "dc6zaTOxFJmzC"
 end
 # Add additional requires below this line. Rails is not loaded until this point!
 

@@ -1,0 +1,13 @@
+<h1>Here is your admin gif showpage</h1>
+
+<%= image_tag(@gif.image_path) %>
+<%= link_to "Delete", admin_gif_path(@gif), method: :delete %>
+
+
+<%#= link_to "Favorite!", { :controller => "favorites",
+                          :action => "create",
+                          :user_id => current_user.id,
+                          :gif_id => @gif.id },
+                          method: "post" %>
+
+<%= link_to "Back to the Admin Gif Index", admin_gifs_path %>

@@ -1,4 +1,9 @@
 class User < ActiveRecord::Base
-  validates :username, :email, :password_digest, presence: true
+  has_secure_password
+  validates :username, :email, :password, presence: true
   validates :email, uniqueness: true
+  has_many :gifs, through: :favorite
+  has_many :favorites
+
+  enum role: %w(default admin)
 end
