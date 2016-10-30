@@ -1,4 +1,5 @@
-<h1>Login Here:</h1>
+<h1>Welcome to the Gif Generator!</h1>
+<h3>Login Here:</h3>
 
 <%= form_tag login_path, method: :post do %>
 
@@ -11,4 +12,7 @@
   <%= submit_tag "Login" %>
 <% end %><br>
 <hr>
-Not registered yet? <%= link_to "Create a New Account!", new_user_path %>
+<%= image_tag "#{Giphy.random('dog').image_url.to_s}" %>
+<hr>
+Not registered yet? <%= link_to "Create a new account already!", new_user_path %>
+<hr>

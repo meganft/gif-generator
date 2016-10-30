@@ -1,8 +1,10 @@
-<h1>Index of All Users - Admin</h1>
+<h1>Index of All Users</h1>
 
 <% @users.each do |user| %>
-  <p><%= user.username %>: <%= link_to user.email, "Email: #{user.email}" %></p>
-  <p><%= link_to "Delete", admin_user_path(user), method: :delete %></p><hr>
+  <p>Name: <%= user.username %>, <br>Email: <%= link_to user.email, "mailto: #{user.email}" %>
+  <% if user.admin? %><strong><p>Admin <% end %> </strong></p>
+  <p><%= link_to "Delete", admin_user_path(user), method: :delete %></p>
+  <hr>
 <% end %>
 
 

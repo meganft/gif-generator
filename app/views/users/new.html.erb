@@ -1,4 +1,4 @@
-<h1>Create a New User</h1>
+<h1>Create a New User Account</h1><br>
 
 <%= form_for @user do |f| %>
 
@@ -11,7 +11,11 @@
   <%= f.label :password %>
   <%= f.password_field :password %>
 
-
   <%= f.submit %>
 
 <% end %>
+
+<hr>
+<p>See how much fun this is going to be?</p><br>
+<%= image_tag "#{Giphy.random('fun').image_url.to_s}" %>
+<hr>
