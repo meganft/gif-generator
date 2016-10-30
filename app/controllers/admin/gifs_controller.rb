@@ -1,7 +1,7 @@
 class Admin::GifsController < Admin::BaseController
 
   require 'giphy'
-  
+
   def index
     @gifs = Gif.all
   end
@@ -15,14 +15,14 @@ class Admin::GifsController < Admin::BaseController
   end
 
   def create
-    @category = Category.find_by(search_term: params[:search_term])
-    if @category.nil?
-      flash[:error] = "Sorry, you can't generate a gif without a category. Add that category now!"
-      redirect_to new_category_path
-    else
+    if Category.find_by(search_term: params[:search_term])
+      @category = Category.find_by(search_term: params[:search_term])
       search_term = @category.search_term
       @gif = Gif.create(image_path: Giphy.random(search_term).image_url.to_s, category_id: @category.id)
       redirect_to admin_gif_path(@gif)
+    else
+      flash.now[:error] = "New GIF must be from a category that has already been created."
+      render :new
     end
   end
 

@@ -8,15 +8,50 @@
 </head>
 <body>
 
+<% if logged_in? %>
+  <nav class="navbar navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Gif Generator</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <span class="sr-only">(current)</span></a></li>
+        <% if current_user.admin? %>
+          <li><%= link_to "All the GIFs", admin_gifs_path %></li>
+          <% else %>
+          <li><%= link_to "All the GIFs", gifs_path %></li>
+          <% end %>
+          <li><%= link_to "Your Favorites", user_path(current_user) %></li>
+          <% if current_user.admin? %>
+          <li><%= link_to "All Users", admin_users_path %></li>
+          <li><%= link_to "Admin Homepage", admin_user_path(current_user) %></li>
+          <% end %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+            <% if logged_in? %>
+            Logged in as <%= "#{current_user.username}." %> <br><%= link_to "Logout Here.", logout_path %>
+          <% else %>
+            <%= link_to "Login", login_path %>
+          <% end %>
+
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
   <% flash.each do |type, msg| %>
       <%= content_tag :div, msg, class:"flash_#{type}" %>
   <% end %>
 
-  <% if logged_in? %>
-  <p><%= "Logged in as #{current_user.username}" %></p>
-  <p> <%= link_to "Logout", logout_path %> </p>
-  <% else  %>
-  <p> <%= link_to "Login", login_path %> </p>
   <% end %>
 <div align="center">
 <%= yield %>

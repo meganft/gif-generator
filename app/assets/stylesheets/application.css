@@ -12,22 +12,55 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap
  */
- /*
-* {
-  font-family: Helvetica Neue; sans-serif;
+
+ .navbar-custom {
+     background-color:#673ab7;
+     color: #ffffff;
+     border-radius:0;
+ }
+
+ .navbar-custom .navbar-nav > li > a {
+     color:#fff;
+ }
+ .navbar-custom .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
+     color: red;
+     background-color:transparent;
+ }
+ .navbar-custom .navbar-brand {
+     color:#eeeeee;
+ }
+
+ .btn-primary {
+    background: #03a9f4;
+    color: #ffffff;
+    border: none;
 }
 
-a:link {
-  font-size: 1em;
-  text-decoration: none;
+.btn-danger {
+   background: #e51c23;
+   color: #ffffff;
+   border: none;
 }
 
-a:hover {
-  color: blue;
-  font-weight: bolder;
+.btn-success {
+   background: #FFA500;
+   color: #ffffff;
+   border: none;
 }
 
-a:visited {
-  color: red;
-}*/
+a{
+   color: #3385ff;
+ }
+
+a:hover{
+  color: #cc3399;
+  text-decoration: bold;
+}
+
+.jumbotron {
+  color: #00796b;
+}
+
+ul.nav a:hover { color: #cc3399 !important; }

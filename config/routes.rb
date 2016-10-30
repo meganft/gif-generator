@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :favorites, only: [:new, :create, :destroy]
 
   namespace :admin do
-    resources :gifs, only: [:new, :index, :create, :destroy]
+    resources :gifs, only: [:new, :index, :create, :destroy, :show]
     resources :categories, only: [:index, :new, :create, :destroy]
     resources :users, only: [:new, :index, :create, :destroy, :show]
     resources :favorites, only: [:new, :create, :destroy]

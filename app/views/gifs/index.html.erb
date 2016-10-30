@@ -1,14 +1,14 @@
 <h1>Index of all the Best Gifs</h1>
 
 <% @gifs.each do |gif| %>
-<%= link_to image_tag(gif.image_path), gif_path(gif) %>
+<%= link_to image_tag(gif.image_path), gif_path(gif) %></br><br>
 <% if !Favorite.find_by(user_id: current_user.id, gif_id: gif.id) %>
-<%= button_to "Favorite!", { :controller => "favorites",
+<%= link_to "Favorite!", { :controller => "favorites",
                           :action => "create",
                           :user_id => current_user.id,
                           :gif_id => gif.id },
-                          method: "post" %>
+                          method: "post", class: "btn btn-primary" %></br>
   <% else %>
-<%= button_to "Psst. You already favorited this one!"  %>
-  <% end %>
+ <%= link_to "You already favorited this one!", gifs_path, class: "btn btn-primary disabled" %>
+  <% end %><hr>
 <% end %>
