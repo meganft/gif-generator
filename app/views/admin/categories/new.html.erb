@@ -1,4 +1,4 @@
-<h1>Create a New Category - Admin</h1>
+<h1>Create a New Category!</h1><br>
 
 <%= form_for [:admin, @category] do |f| %>
 
@@ -8,3 +8,8 @@
   <%= f.submit %>
 
 <% end %>
+<br>
+<%= link_to "Back to my admin page!", admin_user_path(current_user) %><br>
+<br>
+
+<%= link_to "Check out which categories already exist.", admin_categories_path %>

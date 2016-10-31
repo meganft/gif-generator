@@ -1,4 +1,4 @@
-<h1>Admin Create a New User</h1>
+<h1>Create a New User or Admin</h1><br>
 
 <%= form_for [:admin, @user] do |f| %>
 
@@ -17,5 +17,5 @@
   <%= f.submit %>
 
 <% end %>
-
-<%= link_to "Back to my admin page", admin_user_path(current_user) %>
+<br>
+<%= link_to "Back to my admin page!", admin_user_path(current_user) %>
